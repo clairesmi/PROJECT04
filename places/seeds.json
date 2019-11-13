@@ -1,0 +1,189 @@
+[
+{
+  "model": "places.category",
+  "pk": 1,
+  "fields": {
+    "name": "Eating Out"
+  }
+},
+{
+  "model": "places.category",
+  "pk": 2,
+  "fields": {
+    "name": "Bar"
+  }
+},
+{
+  "model": "places.category",
+  "pk": 3,
+  "fields": {
+    "name": "Restaurant"
+  }
+},
+{
+  "model": "places.category",
+  "pk": 4,
+  "fields": {
+    "name": "Club"
+  }
+},
+{
+  "model": "places.category",
+  "pk": 5,
+  "fields": {
+    "name": "Day time"
+  }
+},
+{
+  "model": "places.category",
+  "pk": 6,
+  "fields": {
+    "name": "Family"
+  }
+},
+{
+  "model": "places.category",
+  "pk": 7,
+  "fields": {
+    "name": "Sport"
+  }
+},
+{
+  "model": "places.category",
+  "pk": 8,
+  "fields": {
+    "name": "Active"
+  }
+},
+{
+  "model": "places.category",
+  "pk": 9,
+  "fields": {
+    "name": "Gallery"
+  }
+},
+{
+  "model": "places.category",
+  "pk": 10,
+  "fields": {
+    "name": "Museum"
+  }
+},
+{
+  "model": "places.category",
+  "pk": 11,
+  "fields": {
+    "name": "Shop"
+  }
+},
+{
+  "model": "places.category",
+  "pk": 12,
+  "fields": {
+    "name": "Landmark"
+  }
+},
+{
+  "model": "places.category",
+  "pk": 13,
+  "fields": {
+    "name": "Shop"
+  }
+},
+{
+  "model": "places.category",
+  "pk": 14,
+  "fields": {
+    "name": "Culture"
+  }
+},
+{
+  "model": "places.category",
+  "pk": 15,
+  "fields": {
+    "name": "Art"
+  }
+},
+{
+  "model": "places.category",
+  "pk": 16,
+  "fields": {
+    "name": "Historical"
+  }
+},
+{
+  "model": "places.category",
+  "pk": 17,
+  "fields": {
+    "name": "Hotel"
+  }
+},
+{
+  "model": "places.category",
+  "pk": 18,
+  "fields": {
+    "name": "Music"
+  }
+},
+{
+  "model": "places.place",
+  "pk": 1,
+  "fields": {
+    "name": "London Zoo",
+    "postcode": "NW1 4RY",
+    "image": "https://www.zsl.org/sites/default/files/styles/leader/public/image/2015-10/Penguin-beach.jpg?itok=Fx7r8E1S",
+    "description": "It's the zoo! Animals!",
+    "visited": true,
+    "categories": [
+      1,
+      3,
+      4,
+      5
+    ]
+  }
+},
+{
+  "model": "places.place",
+  "pk": 2,
+  "fields": {
+    "name": "Biang Biang",
+    "postcode": "E1 7AL",
+    "image": "https://i0.wp.com/redhousespice.com/wp-content/uploads/2018/11/Xian-biang-biang-noodles-portrait-2.jpg?resize=730%2C973&ssl=1",
+    "description": "For my friend Olly",
+    "visited": false,
+    "categories": []
+  }
+},
+{
+  "model": "places.place",
+  "pk": 3,
+  "fields": {
+    "name": "Sky Garden",
+    "postcode": "EC3M 8AF",
+    "image": "https://skygarden.london/sites/default/files/Rhubarb%20at%20Sky%20Garden%20-%20Web%20Sized81_0.jpg",
+    "description": "Beautiful at sunset",
+    "visited": true,
+    "categories": [
+      1,
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "places.comment",
+  "pk": 1,
+  "fields": {
+    "text": "hello",
+    "places": 1
+  }
+},
+{
+  "model": "places.comment",
+  "pk": 2,
+  "fields": {
+    "text": "hello again",
+    "places": 1
+  }
+}
+]
