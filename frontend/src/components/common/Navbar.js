@@ -41,7 +41,7 @@ class Navbar extends React.Component {
   // }
 
   render() {
-    console.log(this.state)
+    // console.log(this.state)
     return (
       <nav>
         <div>
@@ -60,6 +60,7 @@ class Navbar extends React.Component {
             
             <div>
               <Link to="/places">Your Places</Link>
+              {Auth.isAuthenticated() && <Link to="/places/new">Add to your map</Link>}
               {/* {Auth.isAuthenticated() && <Link className="navbar-item" to="/creatures/new">Add a new creature</Link>} */}
               {!Auth.isAuthenticated() && <Link to="/login">Login</Link>}
               {!Auth.isAuthenticated() && <Link to="/register">Sign Up</Link>}
