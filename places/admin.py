@@ -5,3 +5,4 @@ from .models import Place, Comment, Category
 admin.site.register(Place)
 admin.site.register(Comment)
 admin.site.register(Category)
+# admin.site.register(Friend)

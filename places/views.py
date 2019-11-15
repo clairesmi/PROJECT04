@@ -16,11 +16,33 @@ class PlaceDetailView(RetrieveUpdateDestroyAPIView):
     queryset = Place.objects.all()
     serializer_class = PlaceSerializer
 
+class CommentListView(ListCreateAPIView):
+    permission_classes = (IsAuthenticatedOrReadOnly, )
+    queryset = Comment.objects.all()
+    serializer_class = CommentSerializer
+
+class CommentDetailView(RetrieveUpdateDestroyAPIView):
+    permission_classes = (IsAuthenticatedOrReadOnly, )
+    queryset = Comment.objects.all()
+    serializer_class = CommentSerializer
+
 class CategoryListView(ListAPIView):
+    permission_classes = (IsAuthenticatedOrReadOnly, )
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
 
 class CategoryDetailView(RetrieveAPIView):
+    permission_classes = (IsAuthenticatedOrReadOnly, )
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
+
+# class FriendListView(ListAPIView):
+#     permission_classes = (IsAuthenticatedOrReadOnly, )
+#     queryset = Friend.objects.all()
+#     serializer_class = FriendSerializer
+
+# class FriendDetailView(RetrieveAPIView):
+#     permission_classes = (IsAuthenticatedOrReadOnly, )
+#     queryset = Friend.objects.all()
+#     serializer_class = FriendSerializer
     
