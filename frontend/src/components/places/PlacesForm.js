@@ -1,10 +1,13 @@
 import React from 'react'
+import Select from 'react-select'
+import makeAnimated from 'react-select/animated'
 
-const PlacesForm = ({ data, handleChange, handleSubmit, handleCheck }) => (
+const animatedComponents = makeAnimated() // needs to be invoked as per documentation
+
+const PlacesForm = ({ data, options, handleChange, handleSubmit, handleCheck, handleMultiSelect }) => (
   <div>
     <form onSubmit={handleSubmit}>
       <label>
-        Name
       </label>
       <div className="field">
         <input 
@@ -49,8 +52,17 @@ const PlacesForm = ({ data, handleChange, handleSubmit, handleCheck }) => (
           value={data.visited}
         />
       </div>
+      <label className="label">Categories</label>
+      <div className="control">
+        <Select 
+          options={options}
+          isMulti
+          onChange={handleMultiSelect}
+          components={animatedComponents}
+        />
+      </div>
 
-
+      <button type ="submit" className="button">Submit</button>
     </form>
   </div>
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
-// import { Link } from 'react-router-dom'
-// import Auth from '../../lib/auth'
+import { Link } from 'react-router-dom'
+import Auth from '../../lib/auth'
 
 class PlacesShow extends React.Component {
   constructor() {
@@ -11,6 +11,7 @@ class PlacesShow extends React.Component {
       place: null,
       text: ''
     }
+    this.handleDelete = this.handleDelete.bind(this)
   }
 
   componentDidMount() {
@@ -22,6 +23,20 @@ class PlacesShow extends React.Component {
     // console.log(placeId)
     axios.get(`/api/places/${placeId}`)
       .then(res => this.setState({ place: res.data }))
+      .catch(err => console.log(err))
+  }
+
+  isOwner() { 
+    // return Auth.getPayload().sub === this.state.place.user.id
+  }
+
+  handleDelete(e) {
+    e.preventDefault()
+    const placeId = this.props.match.params.id
+    axios.delete(`/api/places/${placeId}`, {
+      headers: { Authorization: `Bearer ${Auth.getToken()}` }
+    })
+      .then(() => this.props.history.push('/places'))
       .catch(err => console.log(err))
   }
 
@@ -56,6 +71,11 @@ class PlacesShow extends React.Component {
             </p>
           )}
         </div>
+        
+        <>
+          <Link to={`/places/${place.id}/edit`}><button>Edit Your Place</button></Link>
+          <button className="delete-place" onClick={this.handleDelete}>Delete Your Place</button>
+        </>
       </div>
     )
   }
