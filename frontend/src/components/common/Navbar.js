@@ -22,10 +22,10 @@ class Navbar extends React.Component {
   //   this.setState({ navOpen: !this.state.navOpen })
   // }
 
-  // handleLogout() {
-  //   Auth.logout() // removes user token from storage (function created in auth file )
-  //   this.props.history.push('/')
-  // }
+  handleLogout() {
+    Auth.logout() // removes user token from storage (function created in auth file )
+    this.props.history.push('/')
+  }
 
 
   // componentDidUpdate(prevProps) { // checks if the component has updated
@@ -60,12 +60,13 @@ class Navbar extends React.Component {
             
             <div>
               <Link to="/places">Your Places</Link>
-              {Auth.isAuthenticated() && <Link to="/places/new">Add to your map</Link>}
+              <Link to="/places/new">Add to your map</Link>
+              <Link to="/categories">Browse by Category</Link>
               {/* {Auth.isAuthenticated() && <Link className="navbar-item" to="/creatures/new">Add a new creature</Link>} */}
               {!Auth.isAuthenticated() && <Link to="/login">Login</Link>}
               {!Auth.isAuthenticated() && <Link to="/register">Sign Up</Link>}
               {Auth.isAuthenticated() && <p>You are logged in </p>}
-              {Auth.isAuthenticated() && <a onClick={this.handleLogout}>Logout</a>}
+              {!Auth.isAuthenticated() && <a onClick={this.handleLogout}>Logout</a>}
             </div>
           </div>
         </div>

@@ -2,17 +2,6 @@ from django.db import models
 from jwt_auth.models import User
 
 
-# class Friend(models.Model):
-#     user = models.ForeignKey(
-#     User,
-#     related_name='friends',
-#     on_delete=models.CASCADE,
-#     null='True'
-#     )
-
-    # def __str__(self):
-    #     return f'{self.user}'
-
 class Category(models.Model):
     name = models.CharField(max_length=50)
 
@@ -30,10 +19,11 @@ class Place(models.Model):
         related_name='places',
         blank=True # M2M field is a string so this needs to be blank
     )
-    users = models.ManyToManyField(
+    owner = models.ForeignKey(
         User,
         related_name='places',
-        blank=True
+        on_delete=models.CASCADE,
+        null=True
     )
 
     def __str__(self):
@@ -51,11 +41,12 @@ class Comment(models.Model):
         null=True, #foreign key is an int so this needs to be null
         blank=True
     )
-    user = models.ForeignKey(
+    owner = models.ForeignKey(
         User,
         related_name='comments',
         on_delete=models.CASCADE,
         null=True
+
     )
     def __str__(self):
-        return self.text
+        return f'Comment {self.id} - {self.user}'

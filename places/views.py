@@ -1,48 +1,94 @@
 # pylint: disable=no-member
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView, ListAPIView, RetrieveAPIView
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
-# from rest_framework.response import Response
+from rest_framework.views import APIView
+from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
+from rest_framework.response import Response
+from rest_framework.status import HTTP_201_CREATED, HTTP_422_UNPROCESSABLE_ENTITY, HTTP_204_NO_CONTENT, HTTP_401_UNAUTHORIZED
 from .models import Place, Category, Comment
-from .serializers import PlaceSerializer, CategorySerializer, CommentSerializer
-# Create your views here.
+from .serializers import PlaceSerializer, CategorySerializer, CommentSerializer, PopulatedPlaceSerializer
 
-class PlaceListView(ListCreateAPIView):
-    permission_classes = (IsAuthenticatedOrReadOnly, )
-    queryset = Place.objects.all()
-    serializer_class = PlaceSerializer
+class PlaceListView(APIView):
 
-class PlaceDetailView(RetrieveUpdateDestroyAPIView):
-    permission_classes = (IsAuthenticatedOrReadOnly, )
-    queryset = Place.objects.all()
-    serializer_class = PlaceSerializer
+    # permission_classes = (IsAuthenticated, IsAuthenticatedOrReadOnly) #needs to be a tuple (comma at end)
 
-class CommentListView(ListCreateAPIView):
-    permission_classes = (IsAuthenticatedOrReadOnly, )
-    queryset = Comment.objects.all()
-    serializer_class = CommentSerializer
+    def get(self, _request):
+        places = Place.objects.all()
+        serialized_places = PopulatedPlaceSerializer(places, many=True)
+        return Response(serialized_places.data)
 
-class CommentDetailView(RetrieveUpdateDestroyAPIView):
-    permission_classes = (IsAuthenticatedOrReadOnly, )
-    queryset = Comment.objects.all()
-    serializer_class = CommentSerializer
+    def post(self, request):
+        request.data['owner'] = request.user.id
+        place = PlaceSerializer(data=request.data)
+        if place.is_valid():
+            place.save()
+            return Response(place.data, status=HTTP_201_CREATED)
+        return Response(place.errors, status=HTTP_422_UNPROCESSABLE_ENTITY)
 
-class CategoryListView(ListAPIView):
-    permission_classes = (IsAuthenticatedOrReadOnly, )
-    queryset = Category.objects.all()
-    serializer_class = CategorySerializer
+class PlaceDetailView(APIView):
 
-class CategoryDetailView(RetrieveAPIView):
-    permission_classes = (IsAuthenticatedOrReadOnly, )
-    queryset = Category.objects.all()
-    serializer_class = CategorySerializer
+    # permission_classes = (IsAuthenticated, )
 
-# class FriendListView(ListAPIView):
-#     permission_classes = (IsAuthenticatedOrReadOnly, )
-#     queryset = Friend.objects.all()
-#     serializer_class = FriendSerializer
+    def get(self, _request, pk):
+        place = Place.objects.get(pk=pk)
+        serialized_place = PopulatedPlaceSerializer(place)
+        return Response(serialized_place.data)
 
-# class FriendDetailView(RetrieveAPIView):
-#     permission_classes = (IsAuthenticatedOrReadOnly, )
-#     queryset = Friend.objects.all()
-#     serializer_class = FriendSerializer
-    
+    def put(self, request, pk):
+        request.data['owner'] = request.user.id
+        place = Place.objects.get(pk=pk)
+        updated_place = PlaceSerializer(place, data=request.data)
+        if updated_place.is_valid():
+            updated_place.save()
+            return Response(updated_place.data)
+        return Response(updated_place.errors, status=HTTP_422_UNPROCESSABLE_ENTITY)
+
+    def delete(self, request, pk):
+        place = Place.objects.get(pk=pk)
+        post.delete()
+        return Response(status=HTTP_204_NO_CONTENT)
+
+
+class CommentListView(APIView):
+
+    # permission_classes = (IsAuthenticated, )
+
+    def post(self, request, pk):
+        request.data['owner'] = request.user.id
+        request.data['places'] = pk
+        print(request.data)
+        comment = CommentSerializer(data=request.data)
+        print(comment.is_valid())
+        if comment.is_valid():
+            comment.save()
+            print(comment.data)
+            place = Place.objects.get(pk=pk)
+            serialized_place = PopulatedPlaceSerializer(place)
+            return Response(serialized_place.data)
+        return Response(comment.errors, status=HTTP_422_UNPROCESSABLE_ENTITY)
+
+class CommentDetailView(APIView):
+
+    # permission_classes = (IsAuthenticated, )
+    def delete(self, request, comment_pk, **kwargs):
+        comment = Comment.objects.get(pk=comment_pk)
+        if comment.owner.id != request.user.id:
+            return Response(status=HTTP_401_UNAUTHORIZED)
+        comment.delete()
+        return Response(status=HTTP_204_NO_CONTENT)
+
+class CategoryListView(APIView):
+    # permission_classes = (IsAuthenticated, )
+
+    def get(self, _request):
+        categories = Category.objects.all()
+        serialized_categories = CategorySerializer(categories, many=True)
+        return Response(serialized_categories.data)
+
+class CategoryDetailView(APIView):
+
+    # permission_classes = (IsAuthenticated, )
+
+    def get(self, _request, pk):
+        category = Category.objects.get(pk=pk)
+        serialized_category = CategorySerializer(category)
+        return Response(serialized_category.data)

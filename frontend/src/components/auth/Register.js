@@ -16,19 +16,20 @@ class Register extends React.Component {
   handleChange(e) {
     const data = { ...this.state.data, [e.target.name]: e.target.value }
     this.setState({ data })
-    console.log(data)
+    // console.log(data)
   }
 
   handleSubmit(e) {
     e.preventDefault()
+    console.log('this is sending')
     axios.post('/api/register', this.state.data)
-
-      .then(() => this.props.history.push('/login'))
       .catch(err => console.log(err))
+      .then(() => this.props.history.push('/login'))
+    // .catch(err => console.log('catch block', err))
   }
 
   render() {
-
+    console.log('at render', this.state)
     return (
       <div className="registerForm">
         <section className="section">

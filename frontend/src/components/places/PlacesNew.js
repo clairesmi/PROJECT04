@@ -18,26 +18,28 @@ class PlacesNew extends React.Component {
       errors: {}
     }
 
-    this.options = [
-      { value: 'eating_out', label: 'Eating Out' },
-      { value: 'bar', label: 'Bar' },
-      { value: 'club', label: 'Club' },
-      { value: 'day_time', label: 'Day time' },
-      { value: 'family', label: 'Family' },
-      { value: 'sport', label: 'Sport' },
-      { value: 'active', label: 'Active' },
-      { value: 'gallery', label: 'Gallery' },
-      { value: 'museum', label: 'Museum' },
-      { value: 'shopping', label: 'Shopping' },
-      { value: 'landmark', label: 'Landmark' },
-      { value: 'culture', label: 'Culture' },
-      { value: 'art', label: 'Art' },
-      { value: 'historical', label: 'Historical' },
-      { value: 'music', label: 'Music' },
-      { value: 'hotel', label: 'Hotel' }
+    // this.options = [
+    //   { value: 'eating_out', label: 'Eating Out' },
+    //   { value: 'bar', label: 'Bar' },
+    //   { value: 'club', label: 'Club' },
+    //   { value: 'day_time', label: 'Day time' },
+    //   { value: 'family', label: 'Family' },
+    //   { value: 'sport', label: 'Sport' },
+    //   { value: 'active', label: 'Active' },
+    //   { value: 'gallery', label: 'Gallery' },
+    //   { value: 'museum', label: 'Museum' },
+    //   { value: 'shopping', label: 'Shopping' },
+    //   { value: 'landmark', label: 'Landmark' },
+    //   { value: 'culture', label: 'Culture' },
+    //   { value: 'art', label: 'Art' },
+    //   { value: 'historical', label: 'Historical' },
+    //   { value: 'music', label: 'Music' },
+    //   { value: 'hotel', label: 'Hotel' }
 
 
-    ]
+    // ]
+    this.options
+
 
     this.handleChange = this.handleChange.bind(this)
     this.handleCheck = this.handleCheck.bind(this)
@@ -46,9 +48,17 @@ class PlacesNew extends React.Component {
 
   }
 
+  componentDidMount() {
+    axios.get('/api/categories')
+      .then(res => this.setState( { categories: res.data } ))
+      .catch(err => console.log(err))
+    console.log(this.state.categories)
+  }
+
   handleChange(e) {
     const data = { ...this.state.data, [e.target.name]: e.target.value }
     this.setState({ data })
+    console.log(data)
   }
 
   handleCheck({ target: { name, value, type, checked } }) { // destructured const name = e.target.value etc.
@@ -61,7 +71,7 @@ class PlacesNew extends React.Component {
     if (!selected) {
       return this.setState({ data: { ...this.state.data, categories: [] } })
     }
-    const categories = selected.map(cat => cat.label) // mapping the object that is returned to take 
+    const categories = selected.map(cat => cat.name) // mapping the object that is returned to take 
     // just the value in an array and setting this in state
     
     const data = { ...this.state.data, categories }
@@ -82,13 +92,18 @@ class PlacesNew extends React.Component {
 
 
   render() {
-    console.log(this.state.data.categries)
+
+    if (!this.state.data.categories) return null
+    const { categories } = this.state
+    console.log(categories)
+
     return (
       <div>
         <PlacesForm 
           data={this.state.data}
           errors={this.state.errors}
-          options={this.options}
+          options={categories}
+          // options={this.state.data.categories.map(({ id, name }) => ({ value: id, label: name }))}
           handleChange={this.handleChange}
           handleCheck={this.handleCheck}
           handleSubmit={this.handleSubmit}

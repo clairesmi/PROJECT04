@@ -12,6 +12,8 @@ import PlacesShow from './components/places/PlacesShow'
 import PlacesNew from './components/places/PlacesNew'
 import PlacesEdit from './components/places/PlacesEdit'
 
+import CategoriesIndex from './components/categories/CategoriesIndex'
+
 import 'spectre.css'
 import '../src/style.scss'
 
@@ -26,6 +28,8 @@ const App = () => {
           <Route path ='/places/:id/edit' component={PlacesEdit}/>
           <Route path ='/places/:id' component={PlacesShow}/>
           <Route path='/places' component={PlacesIndex} />
+
+          <Route path='/categories' component={CategoriesIndex} />
 
           <Route path ='/register' component={Register}/>
           <Route path ='/login' component={Login}/>

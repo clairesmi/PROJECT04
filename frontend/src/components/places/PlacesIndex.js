@@ -8,9 +8,12 @@ class PlacesIndex extends React.Component {
     super()
     this.state = {
       places: null,
-      mapShow: true
+      mapShow: true, 
+      search: '',
+      placeChosen: ''
     }
 
+    this.handleChange = this.handleChange.bind(this)
     this.handleCheck = this.handleCheck.bind(this)
     this.handleUncheck = this.handleUncheck.bind(this)
   }
@@ -33,16 +36,46 @@ class PlacesIndex extends React.Component {
     this.setState({ mapShow: true })
   }
 
+  handleChange(e) {
+    this.setState({ [e.target.name]: e.target.value })
+  }
+
+  filteredPlaces() {
+    const { places, search } = this.state
+    const re = new RegExp(search, 'i')
+    return places.filter((place) => {
+      return re.test(place.postcode)
+    })
+  }
+
   render() {
     if (!this.state.places) return null
-    const { places } = this.state
-    console.log(places)
+    // const { places, categories } = this.state
+    
+    // console.log(categories)
     return (
       <>
       <div>
+
         {!this.state.mapShow &&
         <>
-        <h1>Your Places</h1>
+
+      {/* <div>{this.filteredCategories().map(category => 
+        <CategoriesCard key={category.id} {...category} />
+      )}
+      </div> */}
+
+      <h1>Your Places</h1>
+        <h2>Search by postcode</h2>
+
+<input
+  placeholder="Search"
+  onChange={this.handleChange}
+  name="search"
+/>
+
+
+
         <h2>Switch to map view</h2>
         <input 
           type='checkbox'
@@ -50,7 +83,7 @@ class PlacesIndex extends React.Component {
           onChange={this.handleUncheck} 
         />
         <div>
-          {places.map(place => 
+          {this.filteredPlaces().map(place => 
             <PlacesCard key={place.id} {...place} />
           )}
         </div>
@@ -58,7 +91,6 @@ class PlacesIndex extends React.Component {
         }
         {this.state.mapShow &&
           <div>
-            <h1>Your Places</h1>
             <h2>Switch to list view</h2>
             <input 
               type='checkbox'

@@ -55,7 +55,10 @@ const PlacesForm = ({ data, options, handleChange, handleSubmit, handleCheck, ha
       <label className="label">Categories</label>
       <div className="control">
         <Select 
+          getOptionValue={option => option.id}
+          getOptionLabel={option => option.name}
           options={options}
+          
           isMulti
           onChange={handleMultiSelect}
           components={animatedComponents}
