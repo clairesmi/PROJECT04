@@ -12,14 +12,15 @@ const PlaceCard = ({ name, image, id, postcode, categories }) => (
         <div>
           {postcode}
         </div>
-        <div>
-          {categories.map(category => 
-            <p key={category.id}>{category.name}</p>
-          )}
-        </div>
+    
       </div>
 
     </Link>
+    <div>
+      {categories.map(category => 
+        <div key={category.id}>{category.name}</div>
+      )}
+    </div>
  
   </div>
 )

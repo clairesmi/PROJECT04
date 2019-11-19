@@ -13,9 +13,10 @@ import PlacesNew from './components/places/PlacesNew'
 import PlacesEdit from './components/places/PlacesEdit'
 
 import CategoriesIndex from './components/categories/CategoriesIndex'
+import CategoriesShow from './components/categories/CategoriesShow'
 
 import 'spectre.css'
-import '../src/style.scss'
+import '../src/styles/style.scss'
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
           <Route path='/places' component={PlacesIndex} />
 
           <Route path='/categories' component={CategoriesIndex} />
+          <Route path='/categories/:id' component={CategoriesShow} />
 
           <Route path ='/register' component={Register}/>
           <Route path ='/login' component={Login}/>

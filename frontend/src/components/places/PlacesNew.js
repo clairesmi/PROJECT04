@@ -18,28 +18,6 @@ class PlacesNew extends React.Component {
       errors: {}
     }
 
-    // this.options = [
-    //   { value: 'eating_out', label: 'Eating Out' },
-    //   { value: 'bar', label: 'Bar' },
-    //   { value: 'club', label: 'Club' },
-    //   { value: 'day_time', label: 'Day time' },
-    //   { value: 'family', label: 'Family' },
-    //   { value: 'sport', label: 'Sport' },
-    //   { value: 'active', label: 'Active' },
-    //   { value: 'gallery', label: 'Gallery' },
-    //   { value: 'museum', label: 'Museum' },
-    //   { value: 'shopping', label: 'Shopping' },
-    //   { value: 'landmark', label: 'Landmark' },
-    //   { value: 'culture', label: 'Culture' },
-    //   { value: 'art', label: 'Art' },
-    //   { value: 'historical', label: 'Historical' },
-    //   { value: 'music', label: 'Music' },
-    //   { value: 'hotel', label: 'Hotel' }
-
-
-    // ]
-    this.options
-
 
     this.handleChange = this.handleChange.bind(this)
     this.handleCheck = this.handleCheck.bind(this)

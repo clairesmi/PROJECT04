@@ -45,11 +45,6 @@ class PlaceSerializer(serializers.ModelSerializer):
         fields = ('id', 'owner', 'name', 'postcode', 'image', 'description', 'visited', 'comments', 'categories')
         extra_kwargs = {'comments': {'required': False}, 'categories': {'required': False}} # this lines tell the serializer that sometimes, comments wont be there, and thats fine. This is important otherwise when we create a post. it would say we need to make comments along with it. Again this is a USE CASE idea. Maybe you have a nested field that you would want to be required on creation. This just doesn't make sense for comments. we would want to make a post, and then allow users to make comments on that post
 
-# class NestedCategorySerializer(serializers.ModelSerializer):
-
-#     class Meta:
-#         model = Category
-#         fields = ('id', 'name')
 
 class PopulatedPlaceSerializer(PlaceSerializer): # again same idea as with the populated comment serilaizer, it inherits from Post Serializer and gets all the meta class and fields from that
 

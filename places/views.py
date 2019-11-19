@@ -85,7 +85,6 @@ class CategoryListView(APIView):
         return Response(serialized_categories.data)
 
 class CategoryDetailView(APIView):
-
     # permission_classes = (IsAuthenticated, )
 
     def get(self, _request, pk):
