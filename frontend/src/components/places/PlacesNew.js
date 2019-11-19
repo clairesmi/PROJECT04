@@ -71,10 +71,7 @@ class PlacesNew extends React.Component {
     if (!selected) {
       return this.setState({ data: { ...this.state.data, categories: [] } })
     }
-    const categories = selected.map(cat => cat.name) // mapping the object that is returned to take 
-    // just the value in an array and setting this in state
-    
-    const data = { ...this.state.data, categories }
+    const data = { ...this.state.data, categories: selected.map(sel => sel.id) }
     console.log(data)
     this.setState({ data })
   }
