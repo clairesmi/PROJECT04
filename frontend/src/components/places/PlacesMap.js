@@ -43,6 +43,14 @@ class PlacesMap extends React.Component {
 
 
   render() {
+
+    const geolocateStyle = {
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      margin: 10
+    }
+
     if (!this.state.places) return null
     if (!this.state.postcodes) return null
     const places = this.state.places
@@ -54,8 +62,8 @@ class PlacesMap extends React.Component {
         <div className='mapArea'>
           <MapGL
             mapboxApiAccessToken={'pk.eyJ1IjoiY2xhaXJlc21pdGgiLCJhIjoiY2syYWEwdTd5Mmh5cDNnbXozM3IyMDJ5dyJ9.td0T2VdcfVsCpW1Hc5x6jg'}
-            height={'100vh'}
-            width={'100vw'}
+            height={'77vh'}
+            width={'95vw'}
             mapStyle="mapbox://styles/mapbox/light-v10"
             scrollZoom={true}
             minZoom={0}
@@ -69,6 +77,7 @@ class PlacesMap extends React.Component {
             <GeolocateControl 
               positionOptions={{ enableHighAccuracy: true }}
               trackUserLocation={true}
+              style={geolocateStyle}
             />
 
             <div>

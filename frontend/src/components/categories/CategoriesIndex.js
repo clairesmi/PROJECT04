@@ -36,15 +36,15 @@ class CategoriesIndex extends React.Component {
     // console.log(categories)
     return (
       <>
-      <h1>Categories</h1>
-
-      <select onChange={this.handleChange} name="categoryChosen">
-        <option>All</option>
-        {categories.map(category => {
-          return <option key={category.id} value={category.name}>{category.name}</option>
-        })}
-      </select>
-
+      <h1 className="categories-header">Categories</h1>
+      <div className="filter">
+        <select onChange={this.handleChange} name="categoryChosen">
+          <option>All</option>
+          {categories.map(category => {
+            return <option key={category.id} value={category.name}>{category.name}</option>
+          })}
+        </select>
+       Filter by category</div>
       <div>{this.filteredCategories().map(category => 
         <CategoriesCard key={category.id} {...category} />
       )}

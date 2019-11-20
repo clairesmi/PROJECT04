@@ -55,48 +55,52 @@ class PlacesIndex extends React.Component {
     // console.log(categories)
     return (
       <>
-      <div>
+      <div  >
 
         {!this.state.mapShow &&
+         <div>
         <>
+        
+{/* 
+      <h1 className='placeheader'>Your Places</h1> */}
 
-      {/* <div>{this.filteredCategories().map(category => 
-        <CategoriesCard key={category.id} {...category} />
-      )}
-      </div> */}
+          <input className='postcode-search'
+            placeholder="search by postcode"
+            onChange={this.handleChange}
+            name="search"
+          />
+          <div >
+          
+            <div >
+              <h2 className='mapheaders'>switch to map view
+                <input 
+                  type='checkbox'
+                  name='mapShow'
+                  onChange={this.handleUncheck} 
+                />
+              </h2>
+            </div>
+       
+            <div className="card-wrapper">
+              {this.filteredPlaces().map(place => 
+                <PlacesCard key={place.id} {...place} />
+              )}
 
-      <h1>Your Places</h1>
-        <h2>Search by postcode</h2>
-
-<input
-  placeholder="Search"
-  onChange={this.handleChange}
-  name="search"
-/>
-
-
-
-        <h2>Switch to map view</h2>
-        <input 
-          type='checkbox'
-          name='mapSwitch'
-          onChange={this.handleUncheck} 
-        />
-        <div>
-          {this.filteredPlaces().map(place => 
-            <PlacesCard key={place.id} {...place} />
-          )}
-        </div>
+            </div>
+           
+          </div>
         </>
+         </div>
         }
         {this.state.mapShow &&
           <div>
-            <h2>Switch to list view</h2>
-            <input 
-              type='checkbox'
-              name='mapSwitch'
-              onChange={this.handleCheck} 
-            />
+            <h2 className='mapheaders'>switch to list view
+              <input className='maptoggle'
+                type='checkbox'
+                name='mapShow'
+                onChange={this.handleCheck} 
+              />
+            </h2>
             <PlacesMap />
           </div>
         }

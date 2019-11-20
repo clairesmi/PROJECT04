@@ -79,43 +79,45 @@ class PlacesShow extends React.Component {
     const { place } = this.state
     // console.log(place)
     return (
-      <div>
-        <h1>{place.name}</h1>
-        <div>
-          <img src={place.image} alt={place.name}/>
-          {place.description}
-        </div>
-        <div>
-          <h2>Categories</h2>
-          {place.categories.map(cat => 
-            <p key={cat.id}>{cat.name}</p>
-          )}
-        </div>
-        <div>
-          <h3>Notes to Self</h3>
-          {place.comments.map(comment => 
-            <div key={comment.id}>
-              <p>{comment.text}</p>
-              {/* {this.isOwner() &&  */}
-              <button onClick={this.handleDeleteComment} value={comment.id}>Delete Comment</button>
-              {/* } */}
-            </div>
-          )}
-        </div>
-        <div>
-          <PlacesComment 
-            place={place}
-            handleChange={this.handleChange}
-            handleSubmit={this.handleSubmit}
-            value={this.state.text}
-          />
-        </div>
-        
-        <>
-          <Link to={`/places/${place.id}/edit`}><button>Edit {place.name}</button></Link>
+      <>
+        <h1 className="place-show-header">{place.name}</h1>
+        <div className="place-show-wrapper">
+          <div className="place-detail">
+            <img className="place-show-image" src={place.image} alt={place.name}/>
+            {/* {place.description} */}
+            <h2 className="place-show-categories">Categories</h2>
+            {place.categories.map(cat => 
+              <p className="place-show-cat-list" key={cat.id}>{cat.name}</p>
+            )}
+
+          <>
+          <Link to={`/places/${place.id}/edit`}><button className="edit-place">Edit {place.name}</button></Link>
           <button className="delete-place" onClick={this.handleDelete}>Delete {place.name}</button>
-        </>
-      </div>
+          </>
+
+          </div>
+          <div>
+            <h3 className="notes-header">Notes to Self</h3>
+            <PlacesComment 
+              place={place}
+              handleChange={this.handleChange}
+              handleSubmit={this.handleSubmit}
+              value={this.state.text}
+            />
+ 
+            {place.comments.map(comment => 
+              <div key={comment.id} className="note-header">
+                note:
+                <p>{comment.text}</p>
+                {/* {this.isOwner() &&  */}
+                {/* <button onClick={this.handleDeleteComment} value={comment.id}>x</button> */}
+                {/* } */}
+              </div>
+            )}
+          </div>
+      
+        </div>
+      </>
     )
   }
 }

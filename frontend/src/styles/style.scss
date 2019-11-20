@@ -1,12 +1,17 @@
 
-@import url('https://fonts.googleapis.com/css?family=Caveat&display=swap');
-@import "./animate.css";
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+// @import "./animate.css";
 
 $trolleygrey: #7A7D7D;
-$lightgray: #D0CFCF;
+$lightgrey: #D0CFCF;
 $darkgrey: #565254;
 $darkgreenheaders: #37392E;
 $buttontext: #28AFB0;
 
 
 @import "./home.scss";
+@import "./map.scss";
+@import "./place_index.scss";
+@import "./categories_index.scss";
+@import "./place_show.scss";
+@import "./navbar.scss"

@@ -1,0 +1,16 @@
+header.navbar {
+  height: 40px;
+  color: $buttontext;
+}
+
+a.btn.btn-link {
+  color: $buttontext;
+}
+
+a.btn.btn-link:hover {
+  color: $darkgreenheaders;
+}
+
+a.navbar-brand.mr-2 {
+  color: $darkgreenheaders;
+}

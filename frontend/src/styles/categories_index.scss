@@ -1,0 +1,40 @@
+
+
+.category-container {
+  // border: 2px solid black;
+  // border-radius: 5px;
+  box-shadow: 5px 5px 10px $darkgrey;
+  margin: 10px;
+  height: 300px;
+  max-width: 500px;
+  // opacity: 1.0;
+}
+
+img.category-image {
+  width: 300px;
+  height: 200px;
+}
+
+.index-card-cat {
+  color: $darkgreenheaders;
+  margin: 10px;
+}
+
+.categories-header {
+  font-size: 50px;
+}
+
+.category-name {
+  font-size: 40px;
+}
+
+.filter {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  opacity: 0.5;
+
+  select {
+    width: 200px;
+  }
+}
