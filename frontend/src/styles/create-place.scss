@@ -1,0 +1,69 @@
+
+
+h2.create-title {
+  display: flex;
+  font-size: 50px;
+  justify-content: center;
+}
+
+.form-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+.create-form {
+  height: 550px;
+  width: 600px;
+  box-shadow: 5px 5px 10px $darkgrey;
+  justify-self: center;
+  align-self: center;
+  margin: 0px;
+  padding-top: 60px;
+
+ form {
+  height: 300px;
+  width: 600px;
+
+
+  .create-field {
+    align-self: center;
+    justify-self: center;
+    margin-left: 150px;
+    margin-top: 20px;
+  
+    input {
+      width: 300px;
+      height: 40px;
+      background-color: #FEFCFB;
+    }
+  
+  }
+
+  .create-field-check {
+    margin: 20px 200px;
+  }
+
+  .visited-check {
+    margin: 0px 20px;
+  }
+
+  .select-control {
+    margin: 0px 150px;
+  }
+
+}
+
+  .create-button {
+    width: 200px;
+    height: 40px;
+    margin: 50px 0px 0px 200px;
+  }
+
+  .create-button:hover {
+    color: $buttontext;
+    cursor: pointer;
+    }
+
+  }
+
+}

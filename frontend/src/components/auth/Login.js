@@ -30,13 +30,12 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div className="loginPage">
-        <section className="section">
-          <div className="container">
+      <>
+        <h2 className="login-title">Login</h2>
+        <section className="form-wrapper">
+          <div className="login-form">
             <form onSubmit={this.handleSubmit}>
-              <h2 className="title">Login</h2>
               <div className="field">
-                <label className="label"></label>
                 <div className="control">
                   <input
                     className="input"
@@ -47,7 +46,6 @@ class Login extends React.Component {
                 </div>
               </div>
               <div className="field">
-                <label className="label"></label>
                 <div className="control">
                   <input
                     className="input"
@@ -58,11 +56,11 @@ class Login extends React.Component {
                   />
                 </div>
               </div>
-              <button type="submit" className="button is-fullwidth">Login</button>
+              <button type="submit" className="login-button">Login</button>
             </form>
           </div>
         </section>
-      </div>
+      </>
     )
   }
   

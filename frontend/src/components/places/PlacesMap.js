@@ -98,7 +98,7 @@ class PlacesMap extends React.Component {
                     {places.map(place =>
                       <div key={place.id}>
                         {place.postcode.replace(' ', '') === postcode.query ? <Link to={`/places/${place.id}`}>
-                          {place.name} * {place.postcode} </Link> : null}
+                          {place.name} ❣️ {place.postcode} </Link> : null}
 
                       </div>)}
 

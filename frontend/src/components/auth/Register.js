@@ -25,72 +25,68 @@ class Register extends React.Component {
     axios.post('/api/register', this.state.data)
       .catch(err => console.log(err))
       .then(() => this.props.history.push('/login'))
-    // .catch(err => console.log('catch block', err))
+      .catch(err => console.log(err))
   }
 
   render() {
-    console.log('at render', this.state)
     return (
-      <div className="registerForm">
-        <section className="section">
-          <div className="container">
-            <form onSubmit={this.handleSubmit}>
-              <h2 className="title">Sign Up</h2>
-              <div className="field">
-                <label className="label"></label>
-                <div className="control">
-                  <input 
-                    className="input"
-                    id="username"
-                    name="username"
-                    placeholder="Username"
-                    onChange={this.handleChange}
-                  />
-                </div>
+      <>
+      <h2 className="register-title">Sign Up</h2>
+      <div className="form-wrapper">
+        <div className="register-form">
+          <form onSubmit={this.handleSubmit}>
+      
+            <div className="field">
+              <div className="control">
+                <input 
+                  className="input"
+                  id="username"
+                  name="username"
+                  placeholder="Username"
+                  onChange={this.handleChange}
+                />
               </div>
-              <div className="field">
-                <label className="label"></label>
-                <div className="control">
-                  <input 
-                    className="input"
-                    id="email"
-                    name="email"
-                    placeholder="Email"
-                    onChange={this.handleChange}
-                  />
-                </div>
+            </div>
+            <div className="field">
+              <div className="control">
+                <input 
+                  className="input"
+                  id="email"
+                  name="email"
+                  placeholder="Email"
+                  onChange={this.handleChange}
+                />
               </div>
-              <div className="field">
-                <label className="label"></label>
-                <div className="control">
-                  <input 
-                    className="input"
-                    id="password"
-                    name="password"
-                    type="password" // this hides the password input (turns into dots)
-                    placeholder="Password"
-                    onChange={this.handleChange}
-                  />
-                </div>
+            </div>
+            <div className="field">
+              <div className="control">
+                <input 
+                  className="input"
+                  id="password"
+                  name="password"
+                  type="password" // this hides the password input (turns into dots)
+                  placeholder="Password"
+                  onChange={this.handleChange}
+                />
               </div>
-              <div className="field">
-                <label className="label"></label>
-                <div className="control">
-                  <input 
-                    className="input"
-                    id="password_confirmation"
-                    name="password_confirmation"
-                    type="password"
-                    placeholder="Password Confirmation"
-                    onChange={this.handleChange}
-                  />
-                </div>
+            </div>
+            <div className="field">
+              <div className="control">
+                <input 
+                  className="input"
+                  id="password_confirmation"
+                  name="password_confirmation"
+                  type="password"
+                  placeholder="Password Confirmation"
+                  onChange={this.handleChange}
+                />
               </div>
-              <button type="submit" className="button is-fullwidth">Submit</button>
-            </form>
-          </div>
-        </section>
+            </div>
+            <button type="submit" className="register-button">Submit</button>
+          </form>
+        </div>
       </div>
+      </>
     )
   }
 }

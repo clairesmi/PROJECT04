@@ -22,12 +22,21 @@ main {
     }
 
     h2.place-show-categories {
+
       padding: 5px 0px 0px 0px;
       margin: 0px 0px 10px 0px;
     }
 
     .place-show-cat-list {
+      display: flex;
+      flex-wrap: wrap;
       margin: 0px;
+    }
+
+    .cat-items {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
     }
 
     .place-show-image {

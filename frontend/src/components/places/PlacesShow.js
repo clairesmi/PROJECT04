@@ -110,7 +110,7 @@ class PlacesShow extends React.Component {
                 note:
                 <p>{comment.text}</p>
                 {/* {this.isOwner() &&  */}
-                {/* <button onClick={this.handleDeleteComment} value={comment.id}>x</button> */}
+                <button onClick={this.handleDeleteComment} value={comment.id}>x</button>
                 {/* } */}
               </div>
             )}

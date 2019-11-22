@@ -9,7 +9,7 @@ const Home = () => (
     <div className="container">
       <div className="columns">
         <h2 className="column col-6">
-    Map your to - go list! 
+    Map your to-go list
         </h2>
         <div className="column">
           <Link to='/register' style={{ textDecoration: 'none' }}><h3 className="homepage-buttons">Register</h3></Link>

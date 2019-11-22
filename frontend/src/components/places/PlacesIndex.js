@@ -15,7 +15,6 @@ class PlacesIndex extends React.Component {
 
     this.handleChange = this.handleChange.bind(this)
     this.handleCheck = this.handleCheck.bind(this)
-    this.handleUncheck = this.handleUncheck.bind(this)
   }
 
   componentDidMount() {
@@ -29,11 +28,7 @@ class PlacesIndex extends React.Component {
   }
 
   handleCheck() {
-    this.setState({ mapShow: false })
-  }
-
-  handleUncheck() {
-    this.setState({ mapShow: true })
+    this.setState({ mapShow: !this.state.mapShow })
   }
 
   handleChange(e) {
@@ -50,9 +45,7 @@ class PlacesIndex extends React.Component {
 
   render() {
     if (!this.state.places) return null
-    // const { places, categories } = this.state
-    
-    // console.log(categories)
+
     return (
       <>
       <div  >
@@ -76,7 +69,7 @@ class PlacesIndex extends React.Component {
                 <input 
                   type='checkbox'
                   name='mapShow'
-                  onChange={this.handleUncheck} 
+                  onChange={this.handleCheck} 
                 />
               </h2>
             </div>

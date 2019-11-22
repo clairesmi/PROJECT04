@@ -85,13 +85,6 @@
 },
 {
   "model": "places.category",
-  "pk": 13,
-  "fields": {
-    "name": "Shop"
-  }
-},
-{
-  "model": "places.category",
   "pk": 14,
   "fields": {
     "name": "Culture"
@@ -127,63 +120,207 @@
 },
 {
   "model": "places.place",
-  "pk": 1,
+  "pk": 4,
   "fields": {
-    "name": "London Zoo",
-    "postcode": "NW1 4RY",
-    "image": "https://www.zsl.org/sites/default/files/styles/leader/public/image/2015-10/Penguin-beach.jpg?itok=Fx7r8E1S",
-    "description": "It's the zoo! Animals!",
-    "visited": true,
+    "name": "Neptune",
+    "postcode": "WC1B 5BE",
+    "image": "https://cdn.businesstraveller.com/wp-content/uploads/fly-images/905321/Neptune-916x514.jpg",
+    "description": "",
+    "visited": false,
+    "owner": 1,
     "categories": [
       1,
+      2,
       3,
-      4,
-      5
+      6,
+      17
     ]
   }
 },
 {
   "model": "places.place",
-  "pk": 2,
+  "pk": 5,
   "fields": {
-    "name": "Biang Biang",
-    "postcode": "E1 7AL",
-    "image": "https://i0.wp.com/redhousespice.com/wp-content/uploads/2018/11/Xian-biang-biang-noodles-portrait-2.jpg?resize=730%2C973&ssl=1",
-    "description": "For my friend Olly",
+    "name": "Emirates Air Line",
+    "postcode": "E16 1FA",
+    "image": "https://cdn.londonandpartners.com/asset/emirates-air-line-1fe48a1f15514206b5d7fcb1bf152084.jpg",
+    "description": "",
     "visited": false,
-    "categories": []
+    "owner": 1,
+    "categories": [
+      12,
+      5,
+      6
+    ]
   }
 },
 {
   "model": "places.place",
-  "pk": 3,
+  "pk": 6,
   "fields": {
-    "name": "Sky Garden",
-    "postcode": "EC3M 8AF",
-    "image": "https://skygarden.london/sites/default/files/Rhubarb%20at%20Sky%20Garden%20-%20Web%20Sized81_0.jpg",
-    "description": "Beautiful at sunset",
-    "visited": true,
+    "name": "Village Underground",
+    "postcode": "EC2A 3PQ",
+    "image": "https://hirespace.imgix.net/spaces/10549/hx0ae2foyam.jpg?h=1080&w=1920&auto=format&fit=crop&q=40",
+    "description": "",
+    "visited": false,
+    "owner": 1,
+    "categories": [
+      4,
+      18
+    ]
+  }
+},
+{
+  "model": "places.place",
+  "pk": 7,
+  "fields": {
+    "name": "Oren",
+    "postcode": "E8 2EB",
+    "image": "https://media-cdn.tripadvisor.com/media/photo-s/09/fd/51/c9/oren-pho-bar-grill.jpg",
+    "description": "",
+    "visited": false,
+    "owner": 1,
     "categories": [
       1,
-      2,
       3
     ]
   }
 },
 {
-  "model": "places.comment",
-  "pk": 1,
+  "model": "places.place",
+  "pk": 8,
   "fields": {
-    "text": "hello",
-    "places": 1
+    "name": "Rochelle Canteen",
+    "postcode": "E2 7FA",
+    "image": "https://images.squaremeal.co.uk/cloud/restaurants/2067/images/3e98d4c7-359a-42d2-ae68-3f59b48eadfb.jpg?w=900&h=600&fit=crop",
+    "description": "",
+    "visited": false,
+    "owner": 1,
+    "categories": [
+      1,
+      5,
+      6
+    ]
   }
 },
 {
-  "model": "places.comment",
-  "pk": 2,
+  "model": "places.place",
+  "pk": 9,
   "fields": {
-    "text": "hello again",
-    "places": 1
+    "name": "Blok London",
+    "postcode": "E5 8BQ",
+    "image": "https://s3.amazonaws.com/zingfitassets/bloklondon/contentobject/mobile-gallery_13_20180326105913.jpg",
+    "description": "",
+    "visited": false,
+    "owner": 1,
+    "categories": [
+      8,
+      7
+    ]
+  }
+},
+{
+  "model": "places.place",
+  "pk": 10,
+  "fields": {
+    "name": "ICA",
+    "postcode": "SW1Y 5AH",
+    "image": "https://cdn.londonandpartners.com/asset/ica-institute-of-contemporary-arts_courtesy-of-the-ica_c0f19cf62d52d4aab893fe3375c4268a.jpg",
+    "description": "",
+    "visited": false,
+    "owner": 1,
+    "categories": [
+      9,
+      11,
+      14,
+      15
+    ]
+  }
+},
+{
+  "model": "places.place",
+  "pk": 11,
+  "fields": {
+    "name": "Boundary Hotel",
+    "postcode": "E2 7DD",
+    "image": "https://imgcy.trivago.com/c_limit,d_dummy.jpeg,f_auto,h_1300,q_auto,w_2000/itemimages/12/82/1282680_v4.jpeg",
+    "description": "",
+    "visited": false,
+    "owner": 1,
+    "categories": [
+      17,
+      2
+    ]
+  }
+},
+{
+  "model": "places.place",
+  "pk": 12,
+  "fields": {
+    "name": "Barbican Centre",
+    "postcode": "EC2Y 8DS",
+    "image": "https://www.barbican.org.uk/sites/default/files/styles/promo_small/public/images/2017-08/0981-HDR%20Conservatory%2C%20Barbican%20Centre%2C%20CREDIT%20Max%20Colson.jpg?itok=0ygSB9Re",
+    "description": "",
+    "visited": false,
+    "owner": 1,
+    "categories": [
+      2,
+      5,
+      6,
+      9,
+      14,
+      15
+    ]
+  }
+},
+{
+  "model": "places.place",
+  "pk": 13,
+  "fields": {
+    "name": "Neal's Yard Dairy",
+    "postcode": "SE1 9AB",
+    "image": "https://qbichotels.com/london-city/wp-content/uploads/sites/2/2018/10/Neals-Yard-MAIN.jpg",
+    "description": "",
+    "visited": false,
+    "owner": 1,
+    "categories": [
+      11
+    ]
+  }
+},
+{
+  "model": "places.place",
+  "pk": 14,
+  "fields": {
+    "name": "Tonkotsu Mare Street",
+    "postcode": "E8 1HR",
+    "image": "https://media-cdn.tripadvisor.com/media/photo-s/0e/0b/51/8e/mare-street-japanese.jpg",
+    "description": "",
+    "visited": false,
+    "owner": 1,
+    "categories": [
+      1,
+      3
+    ]
+  }
+},
+{
+  "model": "places.place",
+  "pk": 15,
+  "fields": {
+    "name": "Kew Gardens",
+    "postcode": "TW9 3AB",
+    "image": "https://cdn.londonandpartners.com/asset/royal-botanic-gardens-kew-stroll-the-great-broad-walk-borders-0d90a90191391fa7562ba3f5ed8195f4.jpg",
+    "description": "",
+    "visited": false,
+    "owner": 1,
+    "categories": [
+      5,
+      6,
+      12,
+      14,
+      16
+    ]
   }
 }
 ]
