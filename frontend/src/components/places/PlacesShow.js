@@ -68,7 +68,7 @@ class PlacesShow extends React.Component {
       headers: { Authorization: `Bearer ${Auth.getToken()}` }
     })
       .then(res => {
-        this.setState({ places: res.data })
+        this.setState({ place: res.data })
 
       })
       .catch(err => console.log(err))
