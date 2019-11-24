@@ -22,8 +22,7 @@ class Place(models.Model):
     owner = models.ForeignKey(
         User,
         related_name='places',
-        on_delete=models.CASCADE,
-        null=True
+        on_delete=models.CASCADE
     )
 
     def __str__(self):
@@ -44,8 +43,7 @@ class Comment(models.Model):
     owner = models.ForeignKey(
         User,
         related_name='comments',
-        on_delete=models.CASCADE,
-        null=True
+        on_delete=models.CASCADE
 
     )
     def __str__(self):
