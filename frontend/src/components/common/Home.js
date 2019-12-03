@@ -12,7 +12,7 @@ const Home = () => (
     Map your to-go list
         </h2>
         <div className="column">
-          <Link to='/register' style={{ textDecoration: 'none' }}><h3 className="homepage-buttons">Register</h3></Link>
+          <Link to='/register' style={{ textDecoration: 'none' }}><h3 className="homepage-buttons">Sign Up</h3></Link>
         </div>
         <div className="column">
           <Link to='/login' style={{ textDecoration: 'none' }}><h3 className="homepage-buttons">Login</h3></Link>

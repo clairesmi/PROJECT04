@@ -23,6 +23,7 @@ class Auth {
   
   static isAuthenticated() {
     const payload = this.getPayload()
+    // console.log(payload)
     if (!payload) return false
     const now = Math.round(Date.now() / 1000)
     return now < payload.exp // if time now is less than payload expiry time 

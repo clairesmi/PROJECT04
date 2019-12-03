@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '36=hi29*)qhn@bl0qz!1h^0+)$p+l^v7u=f06@)*e%j33skcwy'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'places',
     'jwt_auth',
     'frontend',
-    'django_extensions'
+    'django_extensions',
+    'cloudinary'
 ]
 
 MIDDLEWARE = [

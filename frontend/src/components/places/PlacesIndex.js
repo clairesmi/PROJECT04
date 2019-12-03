@@ -48,7 +48,7 @@ class PlacesIndex extends React.Component {
 
     return (
       <>
-      <div  >
+      <div>
 
         {!this.state.mapShow &&
          <div>

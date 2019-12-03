@@ -17,4 +17,8 @@ $buttontext: #28AFB0;
 @import "./navbar.scss";
 @import "./register.scss";
 @import "./login.scss";
-@import "./create-place.scss"
+@import "./create-place.scss";
+
+html {
+  margin: 10px 20px;
+}

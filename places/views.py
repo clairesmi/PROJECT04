@@ -7,6 +7,26 @@ from rest_framework.status import HTTP_201_CREATED, HTTP_422_UNPROCESSABLE_ENTIT
 from .models import Place, Category, Comment
 from .serializers import PlaceSerializer, CategorySerializer, CommentSerializer, PopulatedPlaceSerializer
 
+# All related to image upload:
+from django import forms
+from django.http import HttpResponse
+from cloudinary.forms import cl_init_js_callbacks
+from .models import Photo
+from .forms import PhotoForm
+
+# def upload(request):
+#     context=dict(backend_form=PhotoForm())
+
+#     if request.method == 'POST':
+#         form = PhotoForm(request.POST, request.FILES)
+#         context['posted'] = form.instance
+#         if form.is_valid():
+#             form.save()
+
+#     return render(request, 'upload.html', context)
+
+
+
 class PlaceListView(APIView):
 
     # permission_classes = (IsAuthenticated, IsAuthenticatedOrReadOnly) #needs to be a tuple (comma at end)
