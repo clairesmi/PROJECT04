@@ -55,8 +55,8 @@ class Comment(models.Model):
         return f'Comment {self.id} - {self.owner}'
 
 
-# class Photo(models.Model):
-#     image = CloudinaryField('image')
+class Photo(models.Model):
+    image = CloudinaryField('image')
 
-#     def __str__(self):
-#         return {self.image}
+    def __str__(self):
+        return {self.image}

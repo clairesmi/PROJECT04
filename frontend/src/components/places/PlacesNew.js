@@ -30,13 +30,12 @@ class PlacesNew extends React.Component {
     axios.get('/api/categories')
       .then(res => this.setState( { categories: res.data } ))
       .catch(err => console.log(err))
-    console.log(this.state.categories)
+    console.log(this.state.categories, 'categories')
   }
 
   handleChange(e) {
     const data = { ...this.state.data, [e.target.name]: e.target.value }
     this.setState({ data })
-    console.log(data)
   }
 
   handleCheck({ target: { name, value, type, checked } }) { // destructured const name = e.target.value etc.
@@ -62,7 +61,7 @@ class PlacesNew extends React.Component {
       .then(res => {
         this.props.history.push(`/places/${res.data.id}`)
       })
-      .catch(err => (this.setState({ errors: err.response.data.errors })))
+      .catch(err => this.setState({ errors: err.response.data.errors }))
   }
 
 
@@ -70,7 +69,7 @@ class PlacesNew extends React.Component {
 
     if (!this.state.data.categories) return null
     const { categories } = this.state
-    console.log(categories)
+    // console.log(categories)
 
     return (
       <div>
@@ -78,7 +77,6 @@ class PlacesNew extends React.Component {
           data={this.state.data}
           errors={this.state.errors}
           options={categories}
-          // options={this.state.data.categories.map(({ id, name }) => ({ value: id, label: name }))}
           handleChange={this.handleChange}
           handleCheck={this.handleCheck}
           handleSubmit={this.handleSubmit}

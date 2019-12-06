@@ -77,7 +77,7 @@ class PlacesShow extends React.Component {
   render() {
     if (!this.state.place) return null
     const { place } = this.state
-    // console.log(place)
+    console.log(place)
     return (
       <>
         <h1 className="place-show-header">{place.name}</h1>

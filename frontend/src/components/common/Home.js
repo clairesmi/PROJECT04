@@ -8,13 +8,13 @@ const Home = () => (
     </div>
     <div className="container">
       <div className="columns">
-        <h2 className="column col-6">
+        <h2 className="column col-12 col-sm-12">
     Map your to-go list
         </h2>
-        <div className="column">
+        <div className="column col-6 col-sm-6">
           <Link to='/register' style={{ textDecoration: 'none' }}><h3 className="homepage-buttons">Sign Up</h3></Link>
         </div>
-        <div className="column">
+        <div className="column col-6 col-sm-6">
           <Link to='/login' style={{ textDecoration: 'none' }}><h3 className="homepage-buttons">Login</h3></Link>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import React from 'react'
 import Select from 'react-select'
 import makeAnimated from 'react-select/animated'
+import ImageUpload from './ImageUpload'
 
 const animatedComponents = makeAnimated() // needs to be invoked as per documentation
 
@@ -26,11 +27,11 @@ const PlacesForm = ({ data, options, handleChange, handleSubmit, handleCheck, ha
               value={data.postcode}
             />
           </div>
-          <div className="create-field">
-            <input 
-              placeholder="Image"
+          <div>
+            <ImageUpload
               name="image"
               onChange={handleChange}
+              id="files"
               value={data.image}
             />
           </div>
@@ -43,7 +44,7 @@ const PlacesForm = ({ data, options, handleChange, handleSubmit, handleCheck, ha
             />
           </div>
           <div className="create-field-check">
-       I've been here
+            I've been here
             <input className="visited-check"
               type="checkbox"
               placeholder="Visited"
