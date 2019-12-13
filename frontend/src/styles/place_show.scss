@@ -1,64 +1,98 @@
 
-main {
-  height: 100vh;
+.place-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 
 .place-show-header {
+  display: flex;
+  align-self: flex-start;
   font-size: 50px;
-  padding: 40px 40px 0px 90px;
+  padding: 40px 40px 0px 150px;
 }
 
 .place-show-wrapper {
   display: flex;
-  flex-direction: row;
-  height: 100vh;
+  flex-wrap: wrap;
+  height: 75vh;
+  padding: 0px 80px;
+  justify-content: center;
 
     .place-detail {
-      padding: 0px 40px 0px 90px;
-      height: 100vh;
-      width: 900px;
-      justify-content: space-around;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      padding: 0px 0px 40px 0px;
+      flex-basis: 50%;
+      justify-content: center;
+      align-content: center;
+    }
+
+    .place-buttons {
+      display: flex;
+      flex-direction: column;
+      
+    }
+
+    .comments-section {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      flex-basis: 50%;
+      padding-bottom: 60px;
+    }
+
+    .categories-wrapper {
+      display: flex;
+      width: 100vw;
+      padding: 0px 60px;
     }
 
     h2.place-show-categories {
-
       padding: 5px 0px 0px 0px;
-      margin: 0px 0px 10px 0px;
+      margin: 0px 0px 10px 100px;
     }
 
     .place-show-cat-list {
-      display: flex;
-      flex-wrap: wrap;
-      margin: 0px;
-    }
-
-    .cat-items {
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
+      padding: 15px;
     }
 
     .place-show-image {
-      width: 700px;
       height: 350px;
+      width: 350px;
       // padding: 0px 0px 0px 80px;
     }
 
-    .edit-place {
-      margin: 5px
+    .edit-place > a {
+      color: $darkgreenheaders;
+      text-decoration: none;
     }
 
-
-    .delete-place {
-      margin: 5px
+    .edit-place:hover {
+    opacity: 0.5;
+    cursor: pointer;
+      
     }
 
-    .comment-form {
+    .edit-place, .delete-place {
       display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
+      flex-basis: 50%;
+      margin: 5px;
+      padding: 0px;
+      text-align: center;
+      height: 30px;
+      background: none;
     }
+
+    .delete-place:hover {
+      opacity: 0.5;
+      cursor: pointer;
+        
+      }
 
     .comment-text-input {
       width: 400px;
@@ -71,8 +105,15 @@ main {
     }
 
 }
-
-.note-header {
-  font-weight: 900;
+.notes-header {
+  display: flex;
 }
 
+@media screen and (max-width: 800px) {
+  .categories-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+}

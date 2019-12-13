@@ -1,4 +1,29 @@
 
+.place-index-page-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .your-places {
+    font-size: 30px 
+  }
+
+  .place-index-controls {
+    display: flex;
+    justify-content: space-between;
+    width: 75vw;
+    padding: 20px;
+
+    h2.mapheaders {
+      font-size: 20px;
+
+      .maptoggle {
+        margin: 5px;
+      }
+    }
+  }
+
 .card-wrapper {
   display: flex;
   flex-direction: row;
@@ -7,8 +32,6 @@
   justify-content: center;
 
   .container {
-    // border: 2px solid black;
-    // border-radius: 5px;
     flex-direction: column;
     flex-wrap: wrap;
     box-shadow: 5px 5px 10px $darkgrey;
@@ -29,8 +52,11 @@
 }
 
 .postcode-search {
-  display: flex;
-  text-align: left;
+//  margin: 0px 100px;
+  align-self: center;
+  width: 250px;
+// flex-basis: 20%;
+
 }
 
 .image {
@@ -45,4 +71,24 @@
 
 .index-card {
   color: $darkgreenheaders;
+  }
+}
+
+
+.place-index-controls-map {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 20px;
+
+  .mapheaders {
+    font-size: 20px
+  }
+  }
+
+.place-index-page-wrapper-map {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

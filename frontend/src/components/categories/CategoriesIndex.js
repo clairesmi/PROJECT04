@@ -10,7 +10,7 @@ class CategoriesIndex extends React.Component {
       categoryChosen: 'All'
 
     }
-    this.handleChange = this.handleChange.bind(this)
+    this.handleClick = this.handleClick.bind(this)
   }
 
   componentDidMount() {
@@ -19,8 +19,9 @@ class CategoriesIndex extends React.Component {
       .catch(err => console.log(err))
   }
 
-  handleChange(e) {
-    this.setState({ [e.target.name]: e.target.value })
+  handleClick(e) {
+    this.setState({ categoryChosen: e.target.value })
+    // console.log(e.target.value)
   }
 
   filteredCategories() {
@@ -33,19 +34,20 @@ class CategoriesIndex extends React.Component {
   render() {
     if (!this.state.categories) return null
     const { categories } = this.state
-    // console.log(categories)
+ 
     return (
       <>
       <h1 className="categories-header">Categories</h1>
-      <div className="filter">
-        <select onChange={this.handleChange} name="categoryChosen">
-          <option>All</option>
+      <div className="filter-by-category">
+        <div className="category-options-wrapper">
+          <option className="category-options" value="All" onClick={this.handleClick}>All</option>
           {categories.map(category => {
-            return <option key={category.id} value={category.name}>{category.name}</option>
+            return <option className="category-options" key={category.id} value={category.name} 
+              onClick={this.handleClick}>{category.name}</option>
           })}
-        </select>
-       Filter by category</div>
-      <div>{this.filteredCategories().map(category => 
+        </div>
+      </div>
+      <div className="category-hero">{this.filteredCategories().map(category => 
         <CategoriesCard key={category.id} {...category} />
       )}
       </div>

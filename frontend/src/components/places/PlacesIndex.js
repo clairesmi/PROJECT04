@@ -48,56 +48,50 @@ class PlacesIndex extends React.Component {
 
     return (
       <>
-      <div>
-
         {!this.state.mapShow &&
-         <div>
+         <div className="place-index-page-wrapper">
         <>
-        
-{/* 
-      <h1 className='placeheader'>Your Places</h1> */}
-
+        <div className="your-places">Your Places</div>
+        <div className="place-index-controls">
           <input className='postcode-search'
             placeholder="search by postcode"
             onChange={this.handleChange}
             name="search"
           />
-          <div >
-          
-            <div >
-              <h2 className='mapheaders'>switch to map view
-                <input 
-                  type='checkbox'
-                  name='mapShow'
-                  onChange={this.handleCheck} 
-                />
-              </h2>
-            </div>
-       
+          <h2 className='mapheaders'>switch to map view
+            <input className="maptoggle"
+              type='checkbox'
+              name='mapShow'
+              onChange={this.handleCheck} 
+            />
+          </h2>
+        </div>
             <div className="card-wrapper">
               {this.filteredPlaces().map(place => 
                 <PlacesCard key={place.id} {...place} />
               )}
 
             </div>
-           
-          </div>
         </>
          </div>
         }
         {this.state.mapShow &&
-          <div>
-            <h2 className='mapheaders'>switch to list view
-              <input className='maptoggle'
-                type='checkbox'
-                name='mapShow'
-                onChange={this.handleCheck} 
-              />
-            </h2>
-            <PlacesMap />
-          </div>
+        <>
+                  <div className="place-index-controls-map">
+                    <h2 className='mapheaders'>switch to list view
+                      <input className='maptoggle'
+                        type='checkbox'
+                        name='mapShow'
+                        onChange={this.handleCheck} 
+                      />
+                    </h2>
+
+                  </div>
+        <div className="place-index-page-wrapper-map">
+          <PlacesMap />
+        </div>
+        </>
         }
-      </div>
       </>
     )
   }

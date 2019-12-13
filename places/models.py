@@ -1,6 +1,6 @@
 from django.db import models
 from jwt_auth.models import User
-from cloudinary.models import CloudinaryField
+# from cloudinary.models import CloudinaryField
 
 
 class Category(models.Model):
@@ -55,8 +55,8 @@ class Comment(models.Model):
         return f'Comment {self.id} - {self.owner}'
 
 
-class Photo(models.Model):
-    image = CloudinaryField('image')
+# class Photo(models.Model):
+#     image = CloudinaryField('image')
 
-    def __str__(self):
-        return {self.image}
+#     def __str__(self):
+#         return {self.image}

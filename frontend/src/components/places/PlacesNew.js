@@ -16,6 +16,7 @@ class PlacesNew extends React.Component {
         categories: ['']
       }, 
       errors: {}
+      // loading: false
     }
 
 
@@ -68,11 +69,11 @@ class PlacesNew extends React.Component {
   render() {
 
     if (!this.state.data.categories) return null
-    const { categories } = this.state
-    // console.log(categories)
+    const { categories, loading } = this.state
+    console.log(this.state.loading)
 
     return (
-      <div>
+      <div className="create-page-wrapper">
         <PlacesForm 
           data={this.state.data}
           errors={this.state.errors}
@@ -81,6 +82,7 @@ class PlacesNew extends React.Component {
           handleCheck={this.handleCheck}
           handleSubmit={this.handleSubmit}
           handleMultiSelect={this.handleMultiSelect}
+          // loading={loading}
         />
       </div>
     )

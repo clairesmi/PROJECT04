@@ -67,36 +67,26 @@ class PlacesShow extends React.Component {
     axios.delete(`/api/places/${placeId}/comments/${e.target.value}/`, {
       headers: { Authorization: `Bearer ${Auth.getToken()}` }
     })
-      .then(res => {
-        this.setState({ place: res.data })
-
-      })
-      .catch(err => console.log(err))
+      .then(() => this.getData())
+      .catch(err => console.log(err.message))
   }
 
   render() {
     if (!this.state.place) return null
     const { place } = this.state
-    console.log(place)
+    // console.log(place)
     return (
-      <>
+      <div className="place-wrapper">
         <h1 className="place-show-header">{place.name}</h1>
         <div className="place-show-wrapper">
-          <div className="place-detail">
+          <div className="place-detail column col-lg-6 col-md-6 col-sm-6">
             <img className="place-show-image" src={place.image} alt={place.name}/>
-            {/* {place.description} */}
-            <h2 className="place-show-categories">Categories</h2>
-            {place.categories.map(cat => 
-              <p className="place-show-cat-list" key={cat.id}>{cat.name}</p>
-            )}
-
-          <>
-          <Link to={`/places/${place.id}/edit`}><button className="edit-place">Edit {place.name}</button></Link>
-          <button className="delete-place" onClick={this.handleDelete}>Delete {place.name}</button>
-          </>
-
+            <div className="place-buttons">
+              <button className="edit-place"style={{ textDecoration: 'none' }}><Link to={`/places/${place.id}/edit`}>Edit {place.name}</Link></button>
+              <button className="delete-place" onClick={this.handleDelete}>Delete {place.name}</button>
+            </div>
           </div>
-          <div>
+          <div className="comments-section col-lg-6 col-md-6 col-sm-6">
             <h3 className="notes-header">Notes to Self</h3>
             <PlacesComment 
               place={place}
@@ -115,9 +105,14 @@ class PlacesShow extends React.Component {
               </div>
             )}
           </div>
-      
+          <div className="categories-wrapper col-lg-12 col-md-12 col-sm-12">
+            <h2 className="place-show-categories">Categories</h2>
+            {place.categories.map(cat => 
+              <p className="place-show-cat-list" key={cat.id}>{cat.name}</p>
+            )}
+          </div>
         </div>
-      </>
+      </div>
     )
   }
 }
