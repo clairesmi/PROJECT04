@@ -43,8 +43,7 @@ INSTALLED_APPS = [
     'places',
     'jwt_auth',
     'frontend',
-    'django_extensions',
-    'cloudinary'
+    'django_extensions'
 ]
 
 MIDDLEWARE = [
