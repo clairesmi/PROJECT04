@@ -49,8 +49,11 @@ h2.create-title {
       justify-self: center;
     }
 
-  .loading-spinner, .image-upload {
-    background: yellow;
+  img.loading-spinner {
+    display: flex;
+    height: 200px;
+    width: 200px;
+    justify-self: center;
   }
    }
 
@@ -105,5 +108,6 @@ h2.create-title {
     }
 
   }
+
 
 }

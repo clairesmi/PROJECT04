@@ -3,8 +3,7 @@ import axios from 'axios'
 import PlacesForm from '../places/PlacesForm'
 import Auth from '../../lib/auth'
 
-
-class PlaceEdit extends React.Component {
+class PlacesEdit extends React.Component {
   constructor () {
     super()
     this.state = {
@@ -13,14 +12,15 @@ class PlaceEdit extends React.Component {
         postcode: '',
         image: '',
         description: '',
-        visited: false,
-        categories: []
-      }, 
+        visited: false
+      },
+      categories: [''],
       errors: {}
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleCheck = this.handleCheck.bind(this)
+    this.handleMultiSelect = this.handleMultiSelect.bind(this)
   }
 
   componentDidMount() {
@@ -28,8 +28,15 @@ class PlaceEdit extends React.Component {
     axios.get(`/api/places/${placeId}`)
       .then(res => this.setState({ data: res.data }))
       .catch(err => console.log(err.message))
+    // console.log(this.state.data.categories, 'categories')
+    this.getCategories()
   }
 
+  getCategories() {
+    axios.get('/api/categories')
+      .then(res => this.setState( { categories: res.data } ))
+      .catch(err => console.log(err))
+  }
 
   handleChange(e) {
     const data = { ...this.state.data, [e.target.name]: e.target.value }
@@ -39,6 +46,15 @@ class PlaceEdit extends React.Component {
   handleCheck({ target: { name, value, type, checked } }) { // destructured const name = e.target.value etc.
     const newValue = type === 'checkbox' ? checked : value
     const data = { ...this.state.data, [name]: newValue }
+    this.setState({ data })
+  }
+
+  handleMultiSelect(selected) {
+    if (!selected) {
+      return this.setState({ data: { ...this.state.data, categories: [] } })
+    }
+    const data = { ...this.state.data, categories: selected.map(sel => sel.id) }
+    // console.log(data)
     this.setState({ data })
   }
 
@@ -56,14 +72,20 @@ class PlaceEdit extends React.Component {
 
 
   render() {
+
+    if (!this.state.categories) return null
+    const { categories, data, errors } = this.state
+    // console.log(categories)
     return (
-      <div>
+      <div className="create-page-wrapper">
         <PlacesForm 
-          data={this.state.data}
-          errors={this.state.errors}
+          data={data}
+          errors={errors}
+          options={categories}
           handleChange={this.handleChange}
           handleCheck={this.handleCheck}
           handleSubmit={this.handleSubmit}
+          handleMultiSelect={this.handleMultiSelect}
         />
       </div>
     )
@@ -71,4 +93,4 @@ class PlaceEdit extends React.Component {
 
 }
 
-export default PlaceEdit
+export default PlacesEdit

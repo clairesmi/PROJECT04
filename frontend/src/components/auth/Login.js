@@ -25,7 +25,7 @@ class Login extends React.Component {
         Auth.setToken(res.data.token)
         this.props.history.push('/places')
       })
-      .catch(err => console.log(err))
+      .catch(err => this.setState({ errors: err.message }))
   }
 
   render() {
@@ -42,6 +42,7 @@ class Login extends React.Component {
                     name="email"
                     placeholder="Email"
                     onChange={this.handleChange}
+                    required="required"
                   />
                 </div>
               </div>
@@ -53,6 +54,7 @@ class Login extends React.Component {
                     name="password"
                     placeholder="Password"
                     onChange={this.handleChange}
+                    required="required"
                   />
                 </div>
               </div>

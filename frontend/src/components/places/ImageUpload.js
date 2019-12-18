@@ -40,7 +40,7 @@ class ImageUpload extends React.Component {
           {image ? 
             <img src={image} className="image-preview"/>
             :
-            <div className="loading-spinner">Loading</div>
+            <img src={'https://media.giphy.com/media/sxJ1nCeUoNSfe/giphy.gif'} className="loading-spinner"/>
           }
         </div>
         :

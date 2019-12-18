@@ -5,7 +5,7 @@ import ImageUpload from './ImageUpload'
 
 const animatedComponents = makeAnimated() // needs to be invoked as per documentation
 
-const PlacesForm = ({ data, options, handleChange, handleSubmit, handleCheck, handleMultiSelect, loading }) => (
+const PlacesForm = ({ data, options, handleChange, handleSubmit, handleCheck, handleMultiSelect }) => (
   <>
     <div className="form-wrapper">
       <div className="form-content">
@@ -18,6 +18,7 @@ const PlacesForm = ({ data, options, handleChange, handleSubmit, handleCheck, ha
                 name="name"
                 onChange={handleChange}
                 value={data.name}
+                required="required"
               />
             </div>
             <div className="create-field">
@@ -26,6 +27,7 @@ const PlacesForm = ({ data, options, handleChange, handleSubmit, handleCheck, ha
                 name="postcode"
                 onChange={handleChange}
                 value={data.postcode}
+                required="required"
               />
             </div>
             <div className="create-field">
@@ -52,7 +54,6 @@ const PlacesForm = ({ data, options, handleChange, handleSubmit, handleCheck, ha
                 getOptionValue={option => option.id}
                 getOptionLabel={option => option.name}
                 options={options}
-          
                 isMulti
                 onChange={handleMultiSelect}
                 components={animatedComponents}

@@ -14,6 +14,8 @@ import PlacesEdit from './components/places/PlacesEdit'
 
 import CategoriesIndex from './components/categories/CategoriesIndex'
 
+import SecureRoute from './components/common/SecureRoute'
+
 import 'spectre.css'
 import '../src/styles/style.scss'
 
@@ -24,8 +26,8 @@ const App = () => {
         <Navbar />
         <Switch>
           <Route exact path='/' component={Home} />
-          <Route path ='/places/new' component={PlacesNew}/>
-          <Route path ='/places/:id/edit' component={PlacesEdit}/>
+          <SecureRoute path ='/places/new' component={PlacesNew}/>
+          <SecureRoute path ='/places/:id/edit' component={PlacesEdit}/>
           <Route path ='/places/:id' component={PlacesShow}/>
           <Route path='/places' component={PlacesIndex} />
 

@@ -12,11 +12,10 @@ class PlacesNew extends React.Component {
         postcode: '',
         image: '',
         description: '',
-        visited: false,
-        categories: ['']
+        visited: false
       }, 
+      categories: [''],
       errors: {}
-      // loading: false
     }
 
 
@@ -31,12 +30,12 @@ class PlacesNew extends React.Component {
     axios.get('/api/categories')
       .then(res => this.setState( { categories: res.data } ))
       .catch(err => console.log(err))
-    console.log(this.state.categories, 'categories')
   }
 
   handleChange(e) {
     const data = { ...this.state.data, [e.target.name]: e.target.value }
-    this.setState({ data })
+    const errors = { ...this.state.errors, [e.target.name]: '' }
+    this.setState({ data, errors })
   }
 
   handleCheck({ target: { name, value, type, checked } }) { // destructured const name = e.target.value etc.
@@ -62,27 +61,26 @@ class PlacesNew extends React.Component {
       .then(res => {
         this.props.history.push(`/places/${res.data.id}`)
       })
-      .catch(err => this.setState({ errors: err.response.data.errors }))
+      .catch(err => this.setState({ errors: err.message }))
+    // console.log(this.state)
   }
 
 
   render() {
-
-    if (!this.state.data.categories) return null
-    const { categories, loading } = this.state
-    console.log(this.state.loading)
-
+    if (!this.state.categories) return null
+    const { categories, data, errors } = this.state
+    console.log(errors)
+    // console.log(categories)
     return (
       <div className="create-page-wrapper">
         <PlacesForm 
-          data={this.state.data}
-          errors={this.state.errors}
+          data={data}
+          errors={errors}
           options={categories}
           handleChange={this.handleChange}
           handleCheck={this.handleCheck}
           handleSubmit={this.handleSubmit}
           handleMultiSelect={this.handleMultiSelect}
-          // loading={loading}
         />
       </div>
     )

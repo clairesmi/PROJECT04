@@ -25,14 +25,14 @@ class PlacesShow extends React.Component {
 
   getData() {
     const placeId = this.props.match.params.id
-    // console.log(placeId)
     axios.get(`/api/places/${placeId}`)
       .then(res => this.setState({ place: res.data }))
       .catch(err => console.log(err))
   }
 
   isOwner() { 
-    // return Auth.getPayload().sub === this.state.place.user.id
+    if (!this.state.place.owner) return null
+    return Auth.getPayload().sub === this.state.place.owner.id
   }
 
   handleChange(e) {
@@ -72,15 +72,19 @@ class PlacesShow extends React.Component {
   }
 
   render() {
-    if (!this.state.place) return null
     const { place } = this.state
-    // console.log(place)
+    if (!place) return null
+    console.log(place.visited)
     return (
       <div className="place-wrapper">
         <h1 className="place-show-header">{place.name}</h1>
         <div className="place-show-wrapper">
           <div className="place-detail column col-lg-6 col-md-6 col-sm-6">
             <img className="place-show-image" src={place.image} alt={place.name}/>
+            <div>{place.visited ? <p>I've been here ✅ </p> : <p>I haven't been here yet 💭</p>}</div>
+            {place.owner && 
+            <h4>{place.name} added by {place.owner.username}</h4>
+            }
             <div className="place-buttons">
               <button className="edit-place"style={{ textDecoration: 'none' }}><Link to={`/places/${place.id}/edit`}>Edit {place.name}</Link></button>
               <button className="delete-place" onClick={this.handleDelete}>Delete {place.name}</button>
@@ -99,9 +103,9 @@ class PlacesShow extends React.Component {
               <div key={comment.id} className="note-header">
                 note:
                 <p>{comment.text}</p>
-                {/* {this.isOwner() &&  */}
+                {this.isOwner() && 
                 <button onClick={this.handleDeleteComment} value={comment.id}>x</button>
-                {/* } */}
+                }
               </div>
             )}
           </div>

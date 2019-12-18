@@ -25,7 +25,7 @@ class Register extends React.Component {
     axios.post('/api/register', this.state.data)
       .catch(err => console.log(err))
       .then(() => this.props.history.push('/login'))
-      .catch(err => console.log(err))
+      .catch(err => this.setState({ errors: err.message }))
   }
 
   render() {
@@ -44,6 +44,7 @@ class Register extends React.Component {
                   name="username"
                   placeholder="Username"
                   onChange={this.handleChange}
+                  required="required"
                 />
               </div>
             </div>
@@ -55,6 +56,7 @@ class Register extends React.Component {
                   name="email"
                   placeholder="Email"
                   onChange={this.handleChange}
+                  required="required"
                 />
               </div>
             </div>
@@ -67,6 +69,7 @@ class Register extends React.Component {
                   type="password" // this hides the password input (turns into dots)
                   placeholder="Password"
                   onChange={this.handleChange}
+                  required="required"
                 />
               </div>
             </div>
@@ -79,6 +82,7 @@ class Register extends React.Component {
                   type="password"
                   placeholder="Password Confirmation"
                   onChange={this.handleChange}
+                  required="required"
                 />
               </div>
             </div>
