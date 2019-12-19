@@ -94,8 +94,12 @@ h2.create-title {
   }
 
   .select-control {
+    display: flex;
+    flex-direction: column;
     margin: 0px 150px;
     text-align: center;
+    width: 50%;
+    align-self: center;
   }
 
 }
