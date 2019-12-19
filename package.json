@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack -p",
     "serve:front": "webpack-dev-server --mode=development",
-    "serve:back": "python manage.py runserver 8000"
+    "serve:back": "python manage.py runserver"
   },
   "author": "",
   "license": "ISC",
@@ -31,7 +31,6 @@
   "dependencies": {
     "animate.css": "^3.7.2",
     "axios": "^0.19.0",
-    "dotenv": "^8.2.0",
     "dotenv-webpack": "^1.7.0",
     "jsonwebtoken": "^8.5.1",
     "react": "^16.7.0",
