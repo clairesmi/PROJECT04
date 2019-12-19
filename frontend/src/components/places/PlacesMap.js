@@ -59,7 +59,7 @@ class PlacesMap extends React.Component {
       <main className='map'>
         <div className='mapArea'>
           <MapGL
-            mapboxApiAccessToken={'pk.eyJ1IjoiY2xhaXJlc21pdGgiLCJhIjoiY2syYWEwdTd5Mmh5cDNnbXozM3IyMDJ5dyJ9.td0T2VdcfVsCpW1Hc5x6jg'}
+            mapboxApiAccessToken={process.env.MAPBOX_ACCESS_TOKEN}
             height={'77vh'}
             width={'95vw'}
             mapStyle="mapbox://styles/mapbox/light-v10"
