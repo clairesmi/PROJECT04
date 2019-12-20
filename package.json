@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack -p",
-    "serve:front": "webpack-dev-server --mode=development",
-    "serve:back": "python manage.py runserver"
+    "serve:front": "webpack-dev-server",
+    "serve:back": "python manage.py runserver 4000"
   },
   "author": "",
   "license": "ISC",
