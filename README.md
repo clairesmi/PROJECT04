@@ -28,7 +28,7 @@ This was the fourth and final project on the General Assembly Software Engineeri
 
 The project is deployed online with Heroku and can be found here:
 
-https://allotaveg.herokuapp.com/
+http://co-ordinate.herokuapp.com/
 
 ## Getting started
 
