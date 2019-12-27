@@ -15,7 +15,7 @@ class ImageUpload extends React.Component {
   // qpedrr5c - upload presets
 
   handleUpload({ target: { files } }) {
-    this.setState({ loading: true }, () => {
+    this.setState({ loading: true }, () => { // do this fucntion while loading is true
       const body = new FormData
       body.append('file', files[0])
       body.append('upload_preset', 'qpedrr5c')

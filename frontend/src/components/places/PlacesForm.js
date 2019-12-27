@@ -49,7 +49,7 @@ const PlacesForm = ({ data, options, handleChange, handleSubmit, handleCheck, ha
               />    
             </div>       
             <div className="select-control">
-            Select three categories
+            Select up to three categories
               <Select
                 getOptionValue={option => option.id}
                 getOptionLabel={option => option.name}
